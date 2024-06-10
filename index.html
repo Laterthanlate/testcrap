@@ -50,7 +50,7 @@
   const review = document.querySelectorAll('.review-link');
 
   function openMobileMenu() {
-    console.log('Open menu function called');
+    alert('Open menu function called');
     topNavMenu.classList.add('open');
     buttonOpen.style.display = 'none';
     buttonClose.style.display = 'inline';
@@ -60,7 +60,7 @@
   }
 
   function closeMobileMenu() {
-    console.log('Close menu function called');
+    alert('Close menu function called');
     topNavMenu.classList.remove('open');
     buttonOpen.style.display = 'inline';
     buttonClose.style.display = 'none';
@@ -71,12 +71,12 @@
 
   function setupTopNav(e) {
     if (e.matches) {
-      console.log('is mobile');
+      alert('is mobile');
       topNavMenu.classList.remove('open');
       buttonOpen.style.display = 'inline';
       buttonClose.style.display = 'none';
     } else {
-      console.log('is desktop');
+      alert('is desktop');
       closeMobileMenu();
     }
   }
