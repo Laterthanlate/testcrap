@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Test Menu</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+  }
+  #topnav-menu {
+    display: none;
+    background-color: #333;
+    padding: 1rem;
+    color: white;
+  }
+  #topnav-menu.open {
+    display: block;
+  }
+</style>
+</head>
+<body>
+  <button id="topnav-open">Open Menu</button>
+  <button id="topnav-close" style="display: none;">Close Menu</button>
+  <div id="topnav-menu">This is the menu</div>
+<script>
+(() => {
+  const buttonOpen = document.querySelector('#topnav-open');
+  const buttonClose = document.querySelector('#topnav-close');
+  const topNavMenu = document.querySelector('#topnav-menu');
+
+  function openMobileMenu() {
+    topNavMenu.classList.add('open');
+    buttonOpen.style.display = 'none';
+    buttonClose.style.display = 'inline';
+  }
+
+  function closeMobileMenu() {
+    topNavMenu.classList.remove('open');
+    buttonOpen.style.display = 'inline';
+    buttonClose.style.display = 'none';
+  }
+
+  buttonOpen.addEventListener('click', openMobileMenu);
+  buttonClose.addEventListener('click', closeMobileMenu);
+})();
+</script>
+</body>
+</html>
