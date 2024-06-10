@@ -4,7 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Test Menu</title>
+<link rel="stylesheet" href="styles.css">
 <style>
+  /* Place your CSS here, or link to an external stylesheet */
   body {
     font-family: Arial, sans-serif;
   }
@@ -20,9 +22,21 @@
 </style>
 </head>
 <body>
-  <button id="topnav-open">Open Menu</button>
-  <button id="topnav-close" style="display: none;">Close Menu</button>
-  <div id="topnav-menu">This is the menu</div>
+  <nav>
+    <button id="topnav-open">Open Menu</button>
+    <button id="topnav-close" style="display: none;">Close Menu</button>
+    <div id="topnav-menu">
+      <ul id="topnav">
+        <li class="topnav-item"><a class="topnav-link" href="#">Home</a></li>
+        <li class="topnav-item"><a class="topnav-link" href="#">About</a></li>
+        <li class="topnav-item"><a class="topnav-link" href="#">Services</a></li>
+        <li class="topnav-item"><a class="topnav-link" href="#">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <h1>Welcome to the Test Menu</h1>
+  </main>
 <script>
 (() => {
   const buttonOpen = document.querySelector('#topnav-open');
@@ -30,12 +44,14 @@
   const topNavMenu = document.querySelector('#topnav-menu');
 
   function openMobileMenu() {
+    alert('Open menu function called');
     topNavMenu.classList.add('open');
     buttonOpen.style.display = 'none';
     buttonClose.style.display = 'inline';
   }
 
   function closeMobileMenu() {
+    alert('Close menu function called');
     topNavMenu.classList.remove('open');
     buttonOpen.style.display = 'inline';
     buttonClose.style.display = 'none';
