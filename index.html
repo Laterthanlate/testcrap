@@ -11,14 +11,17 @@
     font-family: Arial, sans-serif;
   }
   #topnav-menu {
-    display: none;
-    background-color: #333;
-    padding: 1rem;
-    color: white;
-  }
-  #topnav-menu.open {
-    display: block;
-  }
+  display: none;
+  background-color: #333;
+  padding: 1rem;
+  color: white;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(100%);
+}
+#topnav-menu.open {
+  display: block;
+  transform: translateX(0);
+}
 </style>
 </head>
 <body>
