@@ -6,22 +6,34 @@
 <title>Test Menu</title>
 <link rel="stylesheet" href="styles.css">
 <style>
-  /* Place your CSS here, or link to an external stylesheet */
+  /* Your existing CSS styles */
   body {
     font-family: Arial, sans-serif;
   }
+  nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+  }
   #topnav-menu {
-  display: none;
-  background-color: #333;
-  padding: 1rem;
-  color: white;
-  transition: transform 0.3s ease-in-out;
-  transform: translateX(100%);
-}
-#topnav-menu.open {
-  display: block;
-  transform: translateX(0);
-}
+    display: none;
+    background-color: #333;
+    padding: 1rem;
+    color: white;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+  }
+  #topnav-menu.open {
+    display: block;
+    transform: translateX(0);
+  }
+  #topnav-open, #topnav-close {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -38,7 +50,7 @@
     </div>
   </nav>
   <main>
-    <h1>Welcome to the Test Menu 2</h1>
+    <h1>Welcome to the Test Menu</h1>
   </main>
 <script>
 (() => {
@@ -50,7 +62,7 @@
   const review = document.querySelectorAll('.review-link');
 
   function openMobileMenu() {
-    alert('Open menu function called');
+    console.log('Open menu function called');
     topNavMenu.classList.add('open');
     buttonOpen.style.display = 'none';
     buttonClose.style.display = 'inline';
@@ -60,7 +72,7 @@
   }
 
   function closeMobileMenu() {
-    alert('Close menu function called');
+    console.log('Close menu function called');
     topNavMenu.classList.remove('open');
     buttonOpen.style.display = 'inline';
     buttonClose.style.display = 'none';
@@ -71,12 +83,12 @@
 
   function setupTopNav(e) {
     if (e.matches) {
-      alert('is mobile');
+      console.log('is mobile');
       topNavMenu.classList.remove('open');
       buttonOpen.style.display = 'inline';
       buttonClose.style.display = 'none';
     } else {
-      alert('is desktop');
+      console.log('is desktop');
       closeMobileMenu();
     }
   }
@@ -94,7 +106,6 @@
 
   media.addEventListener('change', setupTopNav);
 })();
-
 </script>
 </body>
 </html>
