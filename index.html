@@ -41,25 +41,57 @@
 (() => {
   const buttonOpen = document.querySelector('#topnav-open');
   const buttonClose = document.querySelector('#topnav-close');
+  const media = window.matchMedia('(max-width: 850px)');
   const topNavMenu = document.querySelector('#topnav-menu');
+  const main = document.querySelector('main');
+  const review = document.querySelectorAll('.review-link');
 
   function openMobileMenu() {
-    alert('Open menu function called');
+    console.log('Open menu function called');
     topNavMenu.classList.add('open');
     buttonOpen.style.display = 'none';
     buttonClose.style.display = 'inline';
+    review.forEach(nodelistitem => {
+      nodelistitem.setAttribute('tabindex', '-1');
+    });
   }
 
   function closeMobileMenu() {
-    alert('Close menu function called');
+    console.log('Close menu function called');
     topNavMenu.classList.remove('open');
     buttonOpen.style.display = 'inline';
     buttonClose.style.display = 'none';
+    review.forEach(nodelistitem => {
+      nodelistitem.removeAttribute('tabindex');
+    });
   }
+
+  function setupTopNav(e) {
+    if (e.matches) {
+      console.log('is mobile');
+      topNavMenu.classList.remove('open');
+      buttonOpen.style.display = 'inline';
+      buttonClose.style.display = 'none';
+    } else {
+      console.log('is desktop');
+      closeMobileMenu();
+    }
+  }
+
+  setupTopNav(media);
 
   buttonOpen.addEventListener('click', openMobileMenu);
   buttonClose.addEventListener('click', closeMobileMenu);
+
+  main.addEventListener('click', () => {
+    if (topNavMenu.classList.contains('open')) {
+      closeMobileMenu();
+    }
+  });
+
+  media.addEventListener('change', setupTopNav);
 })();
+
 </script>
 </body>
 </html>
